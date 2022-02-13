@@ -1,17 +1,19 @@
 package com.yuanjingjing.carbooking.controller;
 
+import com.yuanjingjing.carbooking.bo.CarModelBO;
+import com.yuanjingjing.carbooking.bo.OderBookingBO;
+import com.yuanjingjing.carbooking.config.Result;
 import com.yuanjingjing.carbooking.service.CarModelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.Collection;
 
 @Api(tags = "car booking api")
-@RestController("/v1/car")
+@RestController("")
 public class CarBookingController {
 
     @Resource
@@ -19,14 +21,17 @@ public class CarBookingController {
 
     @ApiOperation("query")
     @GetMapping("/models")
-    public Object page(@RequestParam(required = false) Integer days) {
+    public Collection<CarModelBO> page(@RequestParam(required = false) Integer days) {
         return carModelService.list(days);
     }
 
     @ApiOperation("book car")
-    @PostMapping("/book")
-    public Object book(){
-
-        return null;
+    @PostMapping("/booking")
+    public Result book(@RequestBody @Valid OderBookingBO bo) {
+        if (bo.getEndDate().isBefore(bo.getStartDate())) {
+            return Result.error(500, "End date cannot before start date!");
+        }
+        carModelService.booking(bo);
+        return Result.ok();
     }
 }

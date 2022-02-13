@@ -11,11 +11,11 @@ import java.util.Map;
 @NoArgsConstructor
 public class CarModelBO {
 
-    private int id;
+    private Integer id;
 
     private String modelName;
 
-    private int stock;
+    private Integer stock;
 
     private Map<LocalDate, Integer> dateMap;
 
@@ -24,6 +24,5 @@ public class CarModelBO {
         this.modelName = bo.getModelName();
         this.stock = bo.getStock();
         this.dateMap = new HashMap<>();
-//        dateMap.put(bo.getDate(), bo.getOrdered());
     }
 }
