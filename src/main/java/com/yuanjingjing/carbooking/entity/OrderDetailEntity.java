@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @TableName(value = "order_detail")
 public class OrderDetailEntity {
+
     @TableId(type = IdType.AUTO)
     private Integer id;
 
@@ -20,7 +21,7 @@ public class OrderDetailEntity {
 
     private Integer orderId;
 
-    @JsonFormat(pattern = "yyyyMMdd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
 

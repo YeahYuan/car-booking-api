@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.Collection;
 
 @Api(tags = "car booking api")
-@RestController("")
+@RestController()
 public class CarBookingController {
 
     @Resource

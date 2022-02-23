@@ -3,16 +3,13 @@ package com.yuanjingjing.carbooking;
 import com.yuanjingjing.carbooking.bo.CarModelBO;
 import com.yuanjingjing.carbooking.bo.OderBookingBO;
 import com.yuanjingjing.carbooking.service.CarModelService;
-import com.yuanjingjing.carbooking.service.impl.CarModelServiceImpl;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.Collection;
 
